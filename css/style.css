@@ -1,0 +1,322 @@
+/* ============================================
+   DAFABOOK - Clean Black & Gold
+   ============================================ */
+:root {
+  --bg: #0D0D0D;
+  --card: #181818;
+  --gold: #FFC107;
+  --gold-dark: #E5A800;
+  --white: #FFFFFF;
+  --gray: #BDBDBD;
+  --gray-light: #9E9E9E;
+  --font: 'Poppins', sans-serif;
+  --font-tech: 'Rajdhani', sans-serif;
+  --font-display: 'Orbitron', sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 100px;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(255,193,7,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(255,193,7,0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+body > * { position: relative; z-index: 1; }
+
+a { text-decoration: none; color: inherit; }
+button { border: none; outline: none; cursor: pointer; font-family: var(--font); }
+
+/* HEADER */
+.header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  background: rgba(13,13,13,0.97);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,193,7,0.15);
+  z-index: 1000;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo { display: flex; align-items: center; }
+.logo-img { height: 34px; width: auto; object-fit: contain; }
+
+.header-right { display: flex; align-items: center; gap: 10px; }
+
+.btn-login {
+  padding: 8px 20px;
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: 0.25s;
+}
+.btn-login:hover { background: var(--gold); color: var(--bg); }
+
+.btn-profile {
+  width: 36px;
+  height: 36px;
+  background: rgba(255,193,7,0.1);
+  border: 2px solid rgba(255,193,7,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 14px;
+  transition: 0.25s;
+}
+.btn-profile:hover { background: rgba(255,193,7,0.2); }
+
+/* ==========================================
+   IMAGE SLIDER - Simple & Working
+   ========================================== */
+.img-slider {
+  margin-top: 60px;
+  padding: 16px 14px 0;
+}
+
+.slider-box {
+  border: 3px solid var(--gold);
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  width: 100%;
+}
+
+.slider-inner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease;
+}
+
+.s-slide {
+  width: 100%;
+  height: 100%;
+  flex: 0 0 100%;
+}
+
+.s-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 14px 0 0;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.dot.active {
+  background: var(--gold);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* ==========================================
+   WHATSAPP BUTTON
+   ========================================== */
+.wa-section { padding: 14px 14px 0; }
+
+.btn-wa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  border-radius: 16px;
+  color: var(--bg);
+  font-size: 17px;
+  font-weight: 800;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.btn-wa:hover { transform: translateY(-2px); filter: brightness(1.1); }
+.btn-wa:active { transform: scale(0.98); }
+
+.wa-shine {
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: waShine 2.5s ease-in-out infinite;
+}
+
+.wa-icon { font-size: 26px; position: relative; z-index: 1; animation: waBounce 1.8s ease-in-out infinite; }
+.wa-label { position: relative; z-index: 1; }
+.wa-arrow { font-size: 16px; position: relative; z-index: 1; animation: waSlide 1.2s ease-in-out infinite; }
+
+/* ==========================================
+   CTA BUTTON
+   ========================================== */
+.cta-section { padding: 12px 14px 0; }
+
+.btn-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 18px 20px;
+  background: var(--card);
+  border: 2px solid var(--gold);
+  border-radius: 18px;
+  transition: 0.3s;
+  overflow: hidden;
+}
+.btn-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,193,7,0.12); }
+
+.cta-top { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+
+.cta-crown {
+  width: 26px; height: 26px;
+  background: var(--gold);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; color: var(--bg);
+}
+
+.cta-name {
+  font-family: var(--font-display);
+  font-size: 10px; font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.cta-rotate {
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  height: 34px;
+}
+
+.rotate-inner { position: relative; height: 100%; }
+
+.r-text {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--white);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(20px) skewX(-3deg);
+  transition: all 0.4s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.r-text.active { opacity: 1; transform: translateY(0) skewX(-3deg); }
+.r-text.exit { opacity: 0; transform: translateY(-20px) skewX(-3deg); }
+
+/* ==========================================
+   BOTTOM NAV
+   ========================================== */
+.bottom-nav {
+  position: fixed;
+  bottom: 14px; left: 14px; right: 14px;
+  height: 78px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 999;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+.bnav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 20px;
+  color: #333;
+  font-size: 11px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+.bnav-item i { font-size: 26px; color: #333; transition: 0.3s; }
+.bnav-item:hover { color: var(--gold); transform: translateY(-2px); }
+.bnav-item:hover i { color: var(--gold); }
+
+.bnav-play {
+  width: 58px; height: 58px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: -26px;
+  transition: 0.3s;
+  box-shadow: 0 4px 16px rgba(255,193,7,0.35);
+}
+.bnav-play i { font-size: 22px; color: var(--bg); margin-left: 2px; }
+.bnav-item.active .bnav-play { transform: scale(1.1); }
+
+/* ANIMATIONS */
+@keyframes waShine {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+@keyframes waBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-3px) rotate(-5deg); }
+  75% { transform: translateY(-3px) rotate(5deg); }
+}
+@keyframes waSlide {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+  .img-slider { max-width: 600px; margin: 60px auto 0; }
+  .wa-section, .cta-section { max-width: 600px; margin: 0 auto; padding-left: 0; padding-right: 0; padding-top: 14px; }
+  .wa-section { padding-top: 16px; }
+}
+@media (min-width: 1024px) {
+  .img-slider { max-width: 700px; }
+  .wa-section, .cta-section { max-width: 700px; }
+}
